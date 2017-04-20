@@ -4,6 +4,14 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: asset_url('bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
 p {
     font-size: 1.25em;
     line-height: 1.6;
