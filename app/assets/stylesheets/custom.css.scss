@@ -98,7 +98,13 @@ hr {
   background-size: cover;
   height: 500px;
 }
-.jumbotron h1 {
+
+.jumbotron-about {
+    background-image: asset-url('aboutpage-pic.jpg');
+  background-size: cover;
+  height: 500px;
+}
+.jumbotron h1, .jumbotron h2 {
   color: #fff;
   text-align: center;
   margin-bottom: 30px;
@@ -106,9 +112,9 @@ hr {
   font-weight: bold;
 }
 
-.jumbotron h2 {
-  color: #fff;
-  text-align: center;
+.jumbotron-about h1, .jumbotron-about h2 {
+  color: green;
+  text-align: left;
   margin-bottom: 30px;
   letter-spacing: -1px;
   font-weight: bold;
