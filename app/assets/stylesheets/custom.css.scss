@@ -1,3 +1,5 @@
+$navbar-default-bg: #2C3E50;
+
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
@@ -12,6 +14,7 @@ body {
     background-size: cover;
     -o-background-size: cover;
 }
+
 p {
     font-size: 1.25em;
     line-height: 1.6;
@@ -22,12 +25,26 @@ hr {
     max-width: 400px;
     border-color: #999999;
 }
+.well {
+    background: #DAA75A;
+}
 
 .brand,
 .address-bar {
     display: none;
 }
-
+// Nav Styles
+.navbar {
+  border: none;
+}
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  &:hover {
+    color: white;
+    opacity: 0.75;
+  }
+}
 .navbar-brand {
     text-transform: uppercase;
     font-weight: 900;
@@ -94,17 +111,25 @@ hr {
 }
 
 .jumbotron {
-    background-image: asset-url('homepage-pic.jpg');
+  background-image: asset-url('homepage-pic.jpg');
   background-size: cover;
-  height: 500px;
+  height: 550px;
 }
 
 .jumbotron-about {
-    background-image: asset-url('aboutpage-pic.jpg');
+  background-image: asset-url('aboutpage-pic.jpg');
   background-size: cover;
-  height: 500px;
+  height: 520px;
 }
-.jumbotron h1, .jumbotron h2 {
+.jumbotron h1 {
+  color: #fff;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 250px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+.jumbotron h2 {
   color: #fff;
   text-align: center;
   margin-bottom: 30px;
@@ -112,8 +137,16 @@ hr {
   font-weight: bold;
 }
 
-.jumbotron-about h1, .jumbotron-about h2 {
+.jumbotron-about h2 {
   color: green;
+  text-align: left;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.jumbotron-about h1 {
+  color: yellow;
   text-align: left;
   margin-bottom: 30px;
   letter-spacing: -1px;

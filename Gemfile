@@ -11,6 +11,8 @@ gem 'rails', '~> 5.0.2'
 
 # Use Twitter Bootstrap library for front-end UI and layout
 gem 'bootstrap-sass', '3.3.7'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
 # Use Font Awesome sass gem for adding icons
 gem 'font-awesome-sass', '4.6.2'
 
