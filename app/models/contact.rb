@@ -1,4 +1,4 @@
-class Contact < ActiveRecord::Base
+class Contact < ApplicationRecord
   
   validates :fname, presence: true
   validates :lname, presence: true
