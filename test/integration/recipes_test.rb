@@ -10,6 +10,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
                                                          description: "great chicken dish within 20 min")
       @recipe2.save
     end
+    
     test "should get recipes index" do
     get recipes_url
     assert_response :success

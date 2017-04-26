@@ -1,8 +1,18 @@
 ul.unstyled {
   text-transform: uppercase;
+  text-align: left;
   list-style: none;
-  font-size: 12px;
+  font-size: 14px;
   padding: 0 ;
+  a {
+    color: #fff;
+  }
+}
+.unstyled p {
+  color: #fff;
+  a {
+    color: #fff;
+  }
 }
 
 .pannel {
@@ -21,4 +31,15 @@ ul.unstyled {
 
 .btn-xlarge {
   background-color: #2C3E50;
+}
+
+.recipe-action {
+  padding: 5px;
+  a {
+    color: #fff;
+  }
+}
+.pannel-img {
+  background-image: asset_url('sidebar-pic2.png');
+  height: 100%;
 }

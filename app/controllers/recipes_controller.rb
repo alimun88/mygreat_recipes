@@ -9,10 +9,10 @@ class RecipesController < ApplicationController
   
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.chef = Chef.last
+    @recipe.chef = Chef.first
     if @recipe.save
       flash[:success] = "Recipe was successfully created"
-      redirect_to recipes_path(@recipe)
+      redirect_to recipe_path(@recipe)
     else
       render 'new'
     end
@@ -36,6 +36,14 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
   end
+  
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    flash[:success] = "Recipe deletedd Successfully"
+    redirect_to recipes_path
+  end
+  
   private
   
   def recipe_params
