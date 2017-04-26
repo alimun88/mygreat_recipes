@@ -14,16 +14,34 @@
         <span class="icon-bar"></span>
       </button>
       <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-    <%= link_to 'MyRecipes', root_path, class: 'navbar-brand' %>
+    <%= link_to root_path, class: 'navbar-brand' do %>
+    <i class="fa fa-spoon"></i>
+    MyRecipes
+    <% end %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Recipes', recipes_path %></li>
-          <li><%= link_to 'Chefs', "#" %></li>
-          <li><%= link_to 'About', pages_about_path %></li>
-          <li><%= link_to "Contact Us", new_contact_path %></li>
+          <li><%= link_to root_path do %>
+          <i class="fa fa-home"></i>
+          Home
+          <% end %> </li>
+          <li><%= link_to recipes_path do %>
+          <i class="fa fa-cutlery"></i>
+          Recipes
+          <% end %></li>
+          <li><%= link_to  "#" do %>
+          <i class="fa fa-black-tie"></i>
+          Chefs
+          <% end %></li>
+          <li><%= link_to pages_about_path do %>
+          <i class="fa fa-font"></i>
+          About
+          <% end %></li>
+          <li><%= link_to new_contact_path do %>
+          <i class="fa fa-phone-square"></i>
+          Contact Us
+          <% end %></li>
           <li><%= link_to 'Create new Recipe', new_recipe_path %></li>
         </ul>
       </div><!-- /.navbar-collapse -->
