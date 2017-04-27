@@ -1,29 +1,13 @@
 <div class="pannel">
  <%= render 'shared/page_title', title: "Listing all Recipes" %>
+ <div class="center">
+  <%= will_paginate %>
+ </div>
 
-  <% @recipes.each do |recipe| %>
-    <div class="row">
-      <div class="col-md-2">
-        <section class="chef-info center">
-          <p>
-            <%= link_to gravatar_for(recipe.chef, size: 120), recipe_path(recipe) %>
-          </p>
-        </section>
-      </div>
-      <div class="col-md-8 well">
-        <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
-        <p><%= truncate(recipe.description, length: 150) %></p>
-        <p> 
-         <span class="quiet"> <small> Created: <%= time_ago_in_words(recipe.created_at) %> ago</small></span>
-        </p>
-      </div>
-      <div class="col-md-2">
-        <section class="center">
-          <p>
-            
-          </p>
-        </section>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'recipe', obj: @recipes %>
+  
+ <div class="center">
+  <%= will_paginate %>
+ </div> 
+  
 </div>

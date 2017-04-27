@@ -1,0 +1,21 @@
+<div class="pannel container">
+  <%= render 'shared/page_title', title: "Chef #{@chef.chef_name}'s Profile" %>
+  
+  <div class="row">
+      <div class="col-md-12 center">
+          <p>
+            <%=  gravatar_for(@chef, size: 150) %>
+          </p>
+      </div>
+    </div>
+    <div class="center">
+      <h4><%= @chef.chef_name %>'s recipes</h4>
+    </div>
+    <div class="center">
+      <%= will_paginate @chef_recipes %>
+    </div>
+    <%= render 'recipes/recipe', obj: @chef_recipes %>
+    <div class="center">
+      <%= will_paginate @chef_recipes %>
+    </div>
+</div>

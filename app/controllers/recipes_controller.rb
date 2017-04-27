@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.paginate(page: params[:page], per_page: 5)
   end
   
   def new
@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.chef = Chef.first
+    @recipe.chef = Chef.last
     if @recipe.save
       flash[:success] = "Recipe was successfully created"
       redirect_to recipe_path(@recipe)

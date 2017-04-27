@@ -1,4 +1,4 @@
-<div class="pannel panel-img container">
+<div class="pannel container">
   <%= render 'shared/page_title', title: @recipe.name %>
   <div class="row">
     <div class="col-md-2">
@@ -18,7 +18,7 @@
           <em>Created By:</em>
         </p class="center">
         <p class="center">
-          <%= link_to gravatar_for(@recipe.chef), recipes_path %>
+          <%= link_to gravatar_for(@recipe.chef), chef_path(@recipe.chef) %>
         </p>
        
         <p class="center">
