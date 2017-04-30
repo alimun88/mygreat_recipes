@@ -19,6 +19,7 @@
         </p class="center">
         <p class="center">
           <%= link_to gravatar_for(@recipe.chef), chef_path(@recipe.chef) %>
+          
         </p>
        
         <p class="center">
@@ -28,9 +29,11 @@
         </div>
       </div>
       <div class="recipe-action">
-        <%= link_to "Edit Recipe", edit_recipe_path(@recipe), class: "btn btn-xs btn-info" %>
-        <%= link_to "Delelte Recipe", recipe_path(@recipe), method: :delete, 
-                    data: { confirm: "Are you sure you want to delete this recipe?" }, class: "btn btn-xs btn-danger" %>
+        <% if logged_in? && current_chef == @recipe.chef %>
+          <%= link_to "Edit Recipe", edit_recipe_path(@recipe), class: "btn btn-xs btn-info" %>
+          <%= link_to "Delelte Recipe", recipe_path(@recipe), method: :delete, 
+                      data: { confirm: "Are you sure you want to delete this recipe?" }, class: "btn btn-xs btn-danger" %>
+        <% end %>
         <%= link_to "Return to Recipe Listing", recipes_path, class: "btn btn-xs btn-warning" %>
       </div>
     </div>
