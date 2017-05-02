@@ -38,8 +38,8 @@ class RecipeTest < ActiveSupport::TestCase
     assert_not @recipe.valid?
   end
   
-  test "description should not be more than 1500 " do
-    @recipe.description = "a" * 1501
+  test "description should not be more than 2500 " do
+    @recipe.description = "a" * 2501
     assert_not @recipe.valid?
   end
   
