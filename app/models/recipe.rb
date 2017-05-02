@@ -7,4 +7,5 @@ class Recipe < ApplicationRecord
   default_scope -> {order( updated_at: :desc)}
   has_many :recipe_key_ingredients
   has_many :key_ingredients, through: :recipe_key_ingredients
+  has_many :comments, dependent: :destroy
 end
