@@ -1,10 +1,7 @@
 <div class="pannel container">
   <%= render 'shared/page_title', title: @recipe.name %>
   <div class="row">
-    <div class="col-md-2">
-      <div class="left-section center"></div>
-    </div>
-  <div class="well col-md-8 ">
+  <div class="well col-md-10 col-md-offset-1 ">
     <h4 class="center description"><strong>Ingredients</strong></h4>
     <hr />
     <%= simple_format(@recipe.ingedients) %>
@@ -19,7 +16,6 @@
         </p class="center">
         <p class="center">
           <%= link_to gravatar_for(@recipe.chef), chef_path(@recipe.chef) %>
-          
         </p>
        
         <p class="center">
@@ -36,9 +32,6 @@
         <% end %>
         <%= link_to "Return to Recipe Listing", recipes_path, class: "btn btn-xs btn-warning" %>
       </div>
-    </div>
-    <div class="col-md-2">
-      <section class="right-section center"></section>
     </div>
   </div>
 </div>
