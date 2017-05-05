@@ -10,11 +10,14 @@
       <div class="col-md-8 well">
         <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
         <p><%= truncate(recipe.description, length: 150) %></p>
+        
         <% if recipe.key_ingredients.any? %>
           <p>Key Ingredients: <%= render recipe.key_ingredients %></p>
         <% end %>
         <p> 
-         <span class="quiet"> <small> Created: <%= time_ago_in_words(recipe.created_at) %> ago, By: <%= recipe.chef.chef_name.capitalize  %></small></span>
+         <span class="quiet"> <small> Created: <%= time_ago_in_words(recipe.created_at) %> ago, By: <%= recipe.chef.chef_name.capitalize  %>
+                                                                  | 
+                                                                               <%= pluralize(recipe.comments.count, 'Comment') %></small></span>
         </p>
         
         <% if logged_in? && (current_chef == recipe.chef || current_chef.admin?) %>

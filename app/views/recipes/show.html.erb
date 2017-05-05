@@ -1,7 +1,7 @@
-<div class="pannel container">
+<div class="well">
   <%= render 'shared/page_title', title: @recipe.name %>
   <div class="row">
-  <div class="well col-md-10 col-md-offset-1 ">
+  <div class="well col-sm-8 col-sm-offset-2 ">
     <h4 class="center description"><strong>Ingredients</strong></h4>
     <hr />
     <%= simple_format(@recipe.ingedients) %>
@@ -37,4 +37,49 @@
       </div>
     </div>
   </div>
+  
+  <% if logged_in? %>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h3>Comments: </h3>
+      <hr />
+      <%= form_for([@recipe, @comment], :html => {class: "form-horizontal", 
+                                                role: "form"}) do |f| %>
+        <div class="form-group">
+          <div class="control-label col-sm-2">
+            <%= f.label :comments, "Comment" %>
+          </div>
+          <div class="col-sm-8">
+            <%= f.text_area :comments, rows: 8, class: "form-control", 
+                                      placeholder: "Enter Comment Here" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= f.submit "Submit Comment", 
+                              class: "btn btn-primary btn-lg btn-xlarge" %>
+          </div>
+        </div>
+      <% end %>
+      <hr />
+    </div>
+  </div>
+<% end %>
+  
+  <% if @recipe.comments != 0 %>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h3>Prior Comments: </h3>
+        <div id="messages">
+          <%= render partial: 'comments/comments', object: @comments %>
+        </div>
+    </div>
+  </div>
+    <% else %>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <h3>No Comments Yet!</h3>
+        </div>
+      </div>
+    <% end %>
 </div>

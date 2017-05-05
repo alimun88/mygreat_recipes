@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'pages/about'
   
   resources :contacts
-  resources :recipes
+  resources :recipes do
+    resources :comments, only: [:create]
+  end
   resources :key_ingredients
   
   get '/signup', to: 'chefs#new'
