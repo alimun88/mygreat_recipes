@@ -10,6 +10,9 @@
     <hr />
     <%= simple_format(@recipe.description) %>
     <hr/>
+    <% if @recipe.key_ingredients.any? %>
+          <p>Key Ingredients: <%= render @recipe.key_ingredients %></p>
+        <% end %>
       <div class="pull-right">
         <p class="center">
           <em>Created By:</em>

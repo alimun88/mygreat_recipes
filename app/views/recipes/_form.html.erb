@@ -28,6 +28,15 @@
         </div>
       </div>
       <div class="form-group">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <%= f.collection_check_boxes :key_ingredient_ids, KeyIngredient.all, :id, :name do |cb| %>
+              <% cb.label(class: "checkbox-inline input-checkbox") {cb.check_box(class: "checkbox") + cb.text}  %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
         <div class="col-md-4 col-md-offset-4">
           <%= f.submit class: 'btn btn-primary btn-lg btn-xlarge' %>
         </div>

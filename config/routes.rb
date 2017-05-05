@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   resources :contacts
   resources :recipes
+  resources :key_ingredients
   
   get '/signup', to: 'chefs#new'
   resources :chefs, except: [:new]
