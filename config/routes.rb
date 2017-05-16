@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   
   get '/signup', to: 'chefs#new'
   resources :chefs, except: [:new]
+  
+  mount ActionCable.server => '/cable'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
