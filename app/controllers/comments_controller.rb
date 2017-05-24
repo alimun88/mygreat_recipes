@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @comment = @recipe.comments.build(comment_params)
     @comment.chef = current_chef
-    @comment.chef = current_chef
     if @comment.save
       ActionCable.server.broadcast "comments", 
                   render(partial: 'comments/comment', object: @comment)
