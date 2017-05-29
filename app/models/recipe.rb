@@ -8,6 +8,15 @@ class Recipe < ApplicationRecord
   has_many :recipe_key_ingredients
   has_many :key_ingredients, through: :recipe_key_ingredients
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  
+  def thumbs_up_total
+    self.likes.where(like: true).size
+  end
+  
+  def thumbs_down_total
+    self.likes.where(like: false).size    
+  end
   
   mount_uploader :image, ImageUploader
   #validate :image_size

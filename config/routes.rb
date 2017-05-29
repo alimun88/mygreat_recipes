@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   get 'pages/about'
   
   resources :contacts
+  
   resources :recipes do
     resources :comments, only: [:create]
+    member do 
+      post 'like'
+    end
   end
   resources :key_ingredients
   

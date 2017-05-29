@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:edit, :update, :show, :destroy]
-  before_action :require_chef, except: [:index, :show]
+  before_action :set_recipe, only: [:edit, :update, :show, :destroy, :like]
+  before_action :require_chef, except: [:index, :show, :like]
+  before_action :require_chef_like, only: [:like]
   before_action :require_same_chef, only: [:edit, :update, :destroy]
   
   def index
@@ -46,6 +47,17 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
   
+  def like
+    like = Like.create(like: params[:like], chef: current_chef, recipe: @recipe)
+    if like.valid?
+      flash[:success] = "Your selection was succesful"
+      redirect_to :back
+    else
+      flash[:danger] = "You can only like/dislike a recipe once"
+      redirect_to :back
+    end
+  end
+  
   private
   
   def recipe_params
@@ -54,6 +66,13 @@ class RecipesController < ApplicationController
   
   def set_recipe
     @recipe = Recipe.find(params[:id])
+  end
+  
+  def require_chef_like
+    if !logged_in?
+      flash[:danger] = "You must be logged in to perform that action"
+      redirect_to :back
+    end
   end
   
   def require_same_chef
