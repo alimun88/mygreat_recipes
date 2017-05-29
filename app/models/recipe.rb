@@ -8,4 +8,15 @@ class Recipe < ApplicationRecord
   has_many :recipe_key_ingredients
   has_many :key_ingredients, through: :recipe_key_ingredients
   has_many :comments, dependent: :destroy
+  
+  mount_uploader :image, ImageUploader
+  #validate :image_size
+  
+  private
+  # Server-sided check only, not browser
+  def image_size
+    if image_size > 5.megabytes
+      errors.add(:image, "should be less than 5MB")
+    end
+  end
 end
