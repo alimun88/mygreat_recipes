@@ -12,7 +12,7 @@
     <hr/>
     <h4 class="center"><strong>Image</strong></h4>
     <hr />
-    <%= image_tag @recipe.image.url, size: "300x300" if @recipe.image? %>
+      <%= image_tag @recipe.image.url, size: "300x300" if @recipe.image? %>
     <hr/>
     <% if @recipe.key_ingredients.any? %>
           <p>Key Ingredients: <%= render @recipe.key_ingredients %></p>

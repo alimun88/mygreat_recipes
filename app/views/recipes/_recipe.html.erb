@@ -41,7 +41,9 @@
       <div class="col-md-2">
         <section class=" center">
           <p>
+          <%= link_to recipe_path(recipe) do %>
             <%= image_tag recipe.image.url, size: "150x150" if recipe.image?  %>
+          <% end %>
           </p>
         </section>
       </div>
