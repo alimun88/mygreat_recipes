@@ -4,26 +4,51 @@
   <p><%= link_to "Sign up or log in", signup_path, class: "btn btn-danger btn-lg" %></p>
 </div>
 
-  <div class="row">
-    <div class="well col-lg-4 recipe-action">
-      <h2>Heading <small>Something of new kind</small></h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p>
-        <%= link_to "View details »", "#" , class: "btn btn-primary btn-xlarge", role: "button" %>
-      </p>
-    </div>
-    <div class="well col-lg-4 recipe-action">
-      <h2>Heading <small>Something of new kind</small></h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p>
-        <%= link_to "View details »", "#" , class: "btn btn-primary btn-xlarge", role: "button" %>
-      </p>
-   </div>
-    <div class="well col-lg-4 recipe-action">
-      <h2>Heading <small>Something of new kind</small></h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-      <p>
-        <%= link_to "View details »", "#" , class: "btn btn-primary btn-xlarge", role: "button" %>
-      </p>
+<div class="well well-height">
+  <div class="center">
+    <%= will_paginate @recipes %>
+  </div>
+<% @recipes.each do |recipe| %>
+  <div class="col-sm-6 col-md-4 thumbnail-height">
+    <div class="thumbnail">
+      <%= link_to recipe_path(recipe) do %>
+        <%= image_tag recipe.image.url, size: "150x150" if recipe.image?  %>
+      <% end %>
+      <div class="caption">
+        <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
+        <p><%= truncate(recipe.description, length: 150) %></p>
+        
+        <% if recipe.key_ingredients.any? %>
+          <p>Key Ingredients: <%= render recipe.key_ingredients %></p>
+        <% end %>
+        <p>
+        <p> 
+         <span class="quiet"> <small> Created: <%= time_ago_in_words(recipe.created_at) %> ago, By: <%= recipe.chef.chef_name.capitalize  %>
+                                                                  | 
+                                                                               <%= pluralize(recipe.comments.count, 'Comment') %></small></span>
+        </p>
+        <p>
+          <%= link_to 'Click for Details', recipe_path(recipe), class: 'btn btn-primary', role: 'button' %>
+          <%= link_to "Click for Recipe Listing", recipes_path, class: "btn btn-success", role: 'button' %>
+        </p>
+      </div>
+      <div class="row">
+          <div class="pull-right liking">
+            <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
+              <i class="glyphicon glyphicon-thumbs-up"></i> 
+            <% end %> <%= recipe.thumbs_up_total %> || 
+            <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
+              <i class="glyphicon glyphicon-thumbs-down"></i>
+            <% end %> <%= recipe.thumbs_down_total %>
+          </div>
+        </div>
     </div>
   </div>
+<% end %>
+
+</div>
+<div class="center well well-small">
+  <%= will_paginate @recipes %>
+</div>
+
+

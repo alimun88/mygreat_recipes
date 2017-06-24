@@ -18,6 +18,15 @@ body {
   float: none;
 }
 
+.thumbnail-height {
+  height: 560px;
+}
+
+.well-height {
+  height: 700px;
+  margin-bottom: 0;
+}
+
 .chat-container {
   bottom: 0;
   left: 0;
@@ -191,7 +200,7 @@ hr {
   font-weight: bold;
 }
 // Typography Styles
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -213,10 +222,11 @@ footer .footer-below {
   background-color: #233140;
 }
 
-.btn-success .badge {
+.btn-success .badge  {
   color: #18BC9C;
   background-color: white;
 }
+
 .btn-social {
   display: inline-block;
   height: 50px;

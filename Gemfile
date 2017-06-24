@@ -22,7 +22,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'fog'
-
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -46,6 +46,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
  gem 'will_paginate', '3.1.0'
  gem 'bootstrap-will_paginate', '0.0.10'
+ gem 'aws-sdk', '~> 2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -56,6 +57,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  
 end
 
 group :development do
